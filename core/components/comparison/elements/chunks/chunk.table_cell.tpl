@@ -1,0 +1,1 @@
+<td class="comparison-cell[[+classes]]">[[+value]]</td>
