@@ -3,6 +3,10 @@
 $properties = array();
 
 $tmp = array(
+	'id' => array(
+		'type' => 'numberfield',
+		'value' => 0,
+	),
 	'tpl' => array(
 		'type' => 'textfield',
 		'value' => 'tpl.Comparison.add',
