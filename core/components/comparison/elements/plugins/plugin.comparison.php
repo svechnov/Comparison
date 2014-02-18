@@ -14,11 +14,11 @@ switch ($modx->event->name) {
 		switch ($action) {
 			case 'add':
 			case 'remove':
-				$cat = !empty($_REQUEST['cat'])
-					? (string) $_REQUEST['cat']
+				$list = !empty($_REQUEST['list'])
+					? (string) $_REQUEST['list']
 					: 'default';
 
-				if ($cat != 'default' && !isset($_SESSION['Comparison'][$cat])) {
+				if ($list != 'default' && !isset($_SESSION['Comparison'][$list])) {
 					$response['success'] = false;
 					$response['message'] = $modx->lexicon('comparison_err_add_name');
 				}
@@ -27,7 +27,7 @@ switch ($modx->event->name) {
 					$response['message'] = $modx->lexicon('comparison_err_add_resource');
 				}
 				else {
-					$params = & $_SESSION['Comparison'][$cat];
+					$params = & $_SESSION['Comparison'][$list];
 					$id = $_REQUEST['resource'];
 					if ($action == 'add') {
 						if ((count($params['ids']) + 1) > $params['maxItems']) {
@@ -45,8 +45,8 @@ switch ($modx->event->name) {
 						'total' => count($params['ids']),
 					);
 					$link_params = array('cmp_ids' => implode(',', array_keys($params['ids'])));
-					if ($cat != 'default') {
-						$link_params['cat'] = $cat;
+					if ($list != 'default') {
+						$link_params['list'] = $list;
 					}
 					$response['data']['link'] = urldecode($modx->context->makeUrl($params['list_id'], $link_params, $modx->getOption('link_tag_scheme')));
 				}

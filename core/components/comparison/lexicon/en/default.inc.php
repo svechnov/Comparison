@@ -15,7 +15,7 @@ $_lang['comparison_err_no_list'] = 'Compare list is empty.';
 $_lang['comparison_err_min_count'] = 'You selected not enough goods for comparison.';
 $_lang['comparison_err_max_resource'] = 'You have added the maximum number of items to compare.';
 $_lang['comparison_err_wrong_fields'] = 'Invalid format of the parameter &fields. You must enter a JSON string with the dataset name, and fields for comparison.';
-$_lang['comparison_err_no_cat'] = 'Cannot find an array of fields for comparison set of "[[+cat]]"';
+$_lang['comparison_err_wrong_list'] = 'Cannot find an array of fields for comparison set of "[[+list]]"';
 
 $_lang['comparison_params_all'] = 'All options';
 $_lang['comparison_params_unique'] = 'Unique';

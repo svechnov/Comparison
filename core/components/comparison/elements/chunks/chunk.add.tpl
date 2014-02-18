@@ -1,4 +1,4 @@
-<div class="comparison comparison-[[+cat]][[+added]][[+can_compare]]" data-id="[[+id]]" data-cat="[[+cat]]">
+<div class="comparison comparison-[[+list]][[+added]][[+can_compare]]" data-id="[[+id]]" data-list="[[+list]]">
 	<a href="#" class="comparison-add comparison-link" data-text="[[%comparison_updating_list]]">[[%comparison_add_to_list]]</a>
 	<a href="#" class="comparison-remove comparison-link" data-text="[[%comparison_updating_list]]">[[%comparison_remove_from_list]]</a>
 	<a href="[[+link]]" class="comparison-go">[[%comparison_go_to_list]]</a>

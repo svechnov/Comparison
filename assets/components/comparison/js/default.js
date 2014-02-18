@@ -18,7 +18,7 @@ Comparison = {
 				var $this = $(this);
 				var $parent = $this.parents(selector);
 				var text = $this.data('text');
-				var cat = $parent.data('cat');
+				var list = $parent.data('list');
 				var id = $parent.data('id');
 				var action = $this.hasClass(options.add.substr(1))
 					? 'add'
@@ -29,7 +29,7 @@ Comparison = {
 				if (text.length) {
 					$this.attr('data-text', $this.text()).text(text);
 				}
-				$.post(document.location.href, {cmp_action: action, cat: cat, resource: id}, function(response) {
+				$.post(document.location.href, {cmp_action: action, list: list, resource: id}, function(response) {
 					if (text.length) {
 						text = $this.attr('data-text');
 						$this.attr('data-text', $this.text()).text(text);
@@ -97,14 +97,14 @@ Comparison = {
 				var $this = $(this);
 				var $parent = $this.parents(selector);
 				var text = $this.data('text');
-				var cat = $this.parent().data('cat');
+				var list = $this.parent().data('list');
 				var id = $this.parent().data('id');
 				var index = $(options.remove, selector).index(this) + 1;
 
 				if (text.length) {
 					$this.attr('data-text', $this.text()).text(text);
 				}
-				$.post(document.location.href, {cmp_action: 'remove', cat: cat, resource: id}, function(response) {
+				$.post(document.location.href, {cmp_action: 'remove', list: list, resource: id}, function(response) {
 					if (text.length) {
 						text = $this.attr('data-text');
 						$this.attr('data-text', $this.text()).text(text);

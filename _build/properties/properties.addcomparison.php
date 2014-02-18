@@ -7,7 +7,7 @@ $tmp = array(
 		'type' => 'textfield',
 		'value' => 'tpl.Comparison.add',
 	),
-	'cat' => array(
+	'list' => array(
 		'type' => 'textfield',
 		'value' => 'default',
 	),

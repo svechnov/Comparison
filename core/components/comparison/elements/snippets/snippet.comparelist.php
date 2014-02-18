@@ -9,10 +9,10 @@ $fqn = $modx->getOption('pdoFetch.class', null, 'pdotools.pdofetch', true);
 if (!$pdoClass = $modx->loadClass($fqn, '', false, true)) {return false;}
 $pdoFetch = new $pdoClass($modx, $scriptProperties);
 
-$cat = !empty($_REQUEST['cat'])
-	? (string) $_REQUEST['cat']
+$list = !empty($_REQUEST['list'])
+	? (string) $_REQUEST['list']
 	: 'default';
-if (empty($_SESSION['Comparison'][$cat]) && empty($_REQUEST['cmp_ids'])) {
+if (empty($_SESSION['Comparison'][$list]) && empty($_REQUEST['cmp_ids'])) {
 	return $modx->lexicon('comparison_err_no_list');
 }
 
@@ -32,15 +32,15 @@ $fields = $modx->fromJSON($fields);
 if (empty($fields) || !is_array($fields)) {
 	return $modx->lexicon('comparison_err_wrong_fields');
 }
-elseif (!isset($fields[$cat])) {
+elseif (!isset($fields[$list])) {
 	if ($modx->user->isAuthenticated('mgr')) {
-		return $modx->lexicon('comparison_err_no_cat', array('cat' => $cat));
+		return $modx->lexicon('comparison_err_wrong_list', array('list' => $list));
 	}
 	else {
 		return $modx->lexicon('comparison_err_no_list');
 	}
 }
-$fields = $fields[$cat];
+$fields = $fields[$list];
 
 $format = null;
 if (!empty($formatSnippet)) {
@@ -93,8 +93,8 @@ foreach (array('leftJoin','select') as $v) {
 	unset($scriptProperties[$v]);
 }
 
-$ids = !empty($_SESSION['Comparison'][$cat]['ids'])
-	? array_keys($_SESSION['Comparison'][$cat]['ids'])
+$ids = !empty($_SESSION['Comparison'][$list]['ids'])
+	? array_keys($_SESSION['Comparison'][$list]['ids'])
 	: explode(',', preg_replace('/[^0-9\,]/', '', $_REQUEST['cmp_ids']));
 
 $properties = array(
@@ -174,7 +174,7 @@ else {
 	foreach ($resources as $resource) {
 		$cells .= $pdoFetch->getChunk($tplHead, $resource);
 	}
-	$head = $pdoFetch->getChunk($tplRow, array('cells' => $cells, 'cat' => $cat));
+	$head = $pdoFetch->getChunk($tplRow, array('cells' => $cells, 'list' => $list));
 
 	$output = $pdoFetch->getChunk($tplOuter, array('head' => $head, 'rows' => $rows));
 }

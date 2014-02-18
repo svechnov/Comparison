@@ -15,7 +15,7 @@ $_lang['comparison_err_no_list'] = 'Список сравнения пуст.';
 $_lang['comparison_err_min_count'] = 'Выбрано недостаточно товаров для сравнения.';
 $_lang['comparison_err_max_resource'] = 'Вы добавили максимальное количество товаров для сравнения.';
 $_lang['comparison_err_wrong_fields'] = 'Неверный формат параметра &fields. Вы должны ввести JSON строку с именем набора и полями для сравнения.';
-$_lang['comparison_err_no_cat'] = 'Не могу найти массив полей сравнения для набора "[[+cat]]"';
+$_lang['comparison_err_wrong_list'] = 'Не могу найти массив полей сравнения для набора "[[+list]]"';
 
 $_lang['comparison_params_all'] = 'Все параметры';
 $_lang['comparison_params_unique'] = 'Различающиеся';

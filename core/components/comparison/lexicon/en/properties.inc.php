@@ -1,7 +1,7 @@
 <?php
 
 $_lang['comparison_prop_tpl'] = 'Chunk for add product to the list of comparison.';
-$_lang['comparison_prop_cat'] = 'An arbitrary name for the comparison list. If you have goods of different types - specify the different names of the lists. The name specified must be in the array "&fields" of snippet "CompareList".';
+$_lang['comparison_prop_list'] = 'An arbitrary name for the comparison list. If you have goods of different types - specify the different names of the lists. The name specified must be in the array "&fields" of snippet "CompareList".';
 $_lang['comparison_prop_list_id'] = 'Mandatory parameter indicating the id of the page where the snippet called "ComparisonList".';
 $_lang['comparison_prop_minItems'] = 'The minimum number of goods for comparison.';
 $_lang['comparison_prop_maxItems'] = 'The maximum number of items to compare.';

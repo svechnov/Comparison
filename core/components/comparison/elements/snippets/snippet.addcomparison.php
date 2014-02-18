@@ -11,7 +11,7 @@ $scriptProperties['nestedChunkPrefix'] = 'comparison_';
 $pdoTools = new $pdoClass($modx, $scriptProperties);
 
 if (empty($tpl)) {$tpl = 'tpl.Comparison.add';}
-if (empty($cat)) {$cat = 'cmp';}
+if (empty($list)) {$list = 'cmp';}
 if (empty($id)) {$id = $modx->resource->id;}
 if (empty($minItems)) {$minItems = 2;}
 if (empty($maxItems)) {$maxItems = 10;}
@@ -20,10 +20,10 @@ if (empty($list_id) || !is_numeric($list_id)) {
 	return $modx->lexicon('comparison_err_no_list_id');
 }
 
-$ids = !empty($_SESSION['Comparison'][$cat])
-	? $_SESSION['Comparison'][$cat]['ids']
+$ids = !empty($_SESSION['Comparison'][$list])
+	? $_SESSION['Comparison'][$list]['ids']
 	: array();
-$_SESSION['Comparison'][$cat] = array(
+$_SESSION['Comparison'][$list] = array(
 	'list_id' => $list_id,
 	'minItems' => $minItems,
 	'maxItems' => $maxItems,
@@ -31,7 +31,7 @@ $_SESSION['Comparison'][$cat] = array(
 );
 
 $pls = array(
-	'cat' => $cat,
+	'list' => $list,
 	'id' => $id,
 	'list_id' => $list_id,
 	'added' => isset($ids[$id]),
@@ -40,10 +40,10 @@ $pls = array(
 );
 
 $link_params = array('cmp_ids' => implode(',', array_keys($ids)));
-if ($cat != 'default') {
-	$link_params['cat'] = $cat;
+if ($list != 'default') {
+	$link_params['list'] = $list;
 }
 $pls['link'] = urldecode($modx->context->makeUrl($list_id, $link_params, $modx->getOption('link_tag_scheme')));
 
-$modx->regClientScript('<script type="text/javascript">Comparison.add.initialize(".comparison-'.$cat.'", {minItems:'.$minItems.'});</script>', true);
+$modx->regClientScript('<script type="text/javascript">Comparison.add.initialize(".comparison-'.$list.'", {minItems:'.$minItems.'});</script>', true);
 return $pdoTools->getChunk($tpl, $pls);
