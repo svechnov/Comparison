@@ -44,11 +44,17 @@ switch ($modx->event->name) {
 					$response['data'] = array(
 						'total' => count($params['ids']),
 					);
-					$link_params = array('cmp_ids' => implode(',', array_keys($params['ids'])));
+
+					$link_params = array();
 					if ($list != 'default') {
 						$link_params['list'] = $list;
 					}
-					$response['data']['link'] = urldecode($modx->context->makeUrl($params['list_id'], $link_params, $modx->getOption('link_tag_scheme')));
+					if (!empty($params['ids'])) {
+						$link_params['cmp_ids'] = implode(',', array_keys($params['ids']));
+					}
+					$response['data']['link'] = !empty($link_params['cmp_ids'])
+						? urldecode($modx->context->makeUrl($params['list_id'], $link_params, $modx->getOption('link_tag_scheme')))
+						: '#';
 				}
 				break;
 		}

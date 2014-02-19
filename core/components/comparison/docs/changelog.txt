@@ -1,5 +1,9 @@
 Changelog for Comparison.
 
+1.0.0 beta2
+==============
+- Improved generation of direct links to compare list.
+
 1.0.0 beta1
 ==============
 - Initial release.

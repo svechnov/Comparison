@@ -39,11 +39,16 @@ $pls = array(
 	'total' => count($ids),
 );
 
-$link_params = array('cmp_ids' => implode(',', array_keys($ids)));
+$link_params = array();
 if ($list != 'default') {
 	$link_params['list'] = $list;
 }
-$pls['link'] = urldecode($modx->context->makeUrl($list_id, $link_params, $modx->getOption('link_tag_scheme')));
+if (!empty($ids)) {
+	$link_params['cmp_ids'] = implode(',', array_keys($ids));
+}
+$pls['link'] = !empty($link_params['cmp_ids'])
+	? urldecode($modx->context->makeUrl($list_id, $link_params, $modx->getOption('link_tag_scheme')))
+	: '#';
 
 $modx->regClientScript('<script type="text/javascript">Comparison.add.initialize(".comparison-'.$list.'", {minItems:'.$minItems.'});</script>', true);
 return $pdoTools->getChunk($tpl, $pls);

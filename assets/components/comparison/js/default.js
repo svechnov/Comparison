@@ -38,9 +38,11 @@ Comparison = {
 					if (response.success) {
 						$(options.total, selector).text(response.data.total);
 
+						if (response.data.link) {
+							$(options.go, selector).attr('href', response.data.link);
+						}
 						if (response.data.total >= minItems) {
 							$(selector).addClass(options.can_compare);
-							$(options.go, selector).attr('href', response.data.link);
 						}
 						else {$(selector).removeClass(options.can_compare);}
 
