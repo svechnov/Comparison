@@ -1,9 +1,10 @@
 Changelog for Comparison.
 
-1.0.0 beta3
+1.0.0 rc
 ==============
 - Improved generation of direct links to compare list.
 - Fixed using TVs in CompareList.
+- Fixed javascript events for elements, that were loaded through ajax.
 
 1.0.0 beta1
 ==============

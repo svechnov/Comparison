@@ -14,7 +14,7 @@ Comparison = {
 
 			var options = this.options;
 			var minItems = !params.min ? 2 : params.min;
-			$(selector).on('click', options.add + ',' + options.remove, function() {
+			$(document).on('click', selector + ' ' + options.add + ',' + selector + ' ' + options.remove, function() {
 				var $this = $(this);
 				var $parent = $this.parents(selector);
 				var text = $this.data('text');
@@ -74,7 +74,7 @@ Comparison = {
 			var minItems = !params.min ? 2 : params.min;
 
 			// Switch parameters
-			$(selector).on('click', options.all + ',' + options.unique, function() {
+			$(document).on('click', selector + ' ' + options.all + ',' + selector + ' ' + options.unique, function() {
 				var $this = $(this);
 				var $parent = $this.parents(selector);
 
@@ -95,7 +95,7 @@ Comparison = {
 			});
 
 			// Remove from list
-			$(selector).on('click', options.remove, function(e) {
+			$(document).on('click', selector + ' ' + options.remove, function(e) {
 				var $this = $(this);
 				var $parent = $this.parents(selector);
 				var text = $this.data('text');
