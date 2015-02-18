@@ -12,7 +12,7 @@ a.comparison-link.active {
 	color: black;
 }
 
-.comparison .comparison-add {display:inline;}
+.comparison .comparison-add {display:inline-block;}
 .comparison .comparison-remove,
 .comparison .comparison-go,
 .comparison .comparison-total {display:none;}
@@ -20,7 +20,7 @@ a.comparison-link.active {
 .comparison.added .comparison-add {display:none;}
 .comparison.added .comparison-remove,
 .comparison.added.can_compare .comparison-go,
-.comparison.added.can_compare .comparison-total {display:inline;}
+.comparison.added.can_compare .comparison-total {display:inline-block;}
 
 .comparison .loading {opacity: .7;cursor:default;}
 .comparison .loading:hover {text-decoration: none;}

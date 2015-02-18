@@ -7,6 +7,10 @@ $tmp = array(
 		'file' => 'addcomparison',
 		'description' => '',
 	),
+	'GetComparison' => array(
+		'file' => 'getcomparison',
+		'description' => '',
+	),
 	'CompareList' => array(
 		'file' => 'comparelist',
 		'description' => '',

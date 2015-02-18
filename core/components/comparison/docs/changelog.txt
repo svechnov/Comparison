@@ -1,5 +1,9 @@
 Changelog for Comparison.
 
+1.0.0 pl
+==============
+- Added snippet GetComparison.
+
 1.0.0 rc
 ==============
 - Improved generation of direct links to compare list.

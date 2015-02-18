@@ -7,6 +7,10 @@ $tmp = array(
 		'file' => 'add',
 		'description' => '',
 	),
+	'tpl.Comparison.get' => array(
+		'file' => 'get',
+		'description' => '',
+	),
 	'tpl.Comparison.outer' => array(
 		'file' => 'table_outer',
 		'description' => '',
