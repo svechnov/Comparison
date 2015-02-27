@@ -11,8 +11,8 @@ $pdoTools = new $pdoClass($modx, $scriptProperties);
 $list = trim($modx->getOption('list', $scriptProperties, 'default'));
 $tpl = $modx->getOption('tpl', $scriptProperties, 'tpl.Comparison.get');
 
-if (!empty($_SESSION['Comparison'][$list])) {
-	$params = $_SESSION['Comparison'][$list];
+if (!empty($_SESSION['Comparison'][$modx->context->key][$list])) {
+	$params = $_SESSION['Comparison'][$modx->context->key][$list];
 	$count = count($params['ids']);
 	if ($count >= $params['minItems']) {
 		$can_compare = true;

@@ -7,7 +7,9 @@ $tmp = array(
 		'file' => 'comparison',
 		'description' => '',
 		'events' => array(
-			'OnHandleRequest' => array()
+			'OnHandleRequest' => array(
+				'priority' => 100
+			)
 		)
 	)
 );

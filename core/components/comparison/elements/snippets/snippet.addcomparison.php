@@ -20,10 +20,10 @@ if (empty($list_id) || !is_numeric($list_id)) {
 	return $modx->lexicon('comparison_err_no_list_id');
 }
 
-$ids = !empty($_SESSION['Comparison'][$list])
-	? $_SESSION['Comparison'][$list]['ids']
+$ids = !empty($_SESSION['Comparison'][$modx->context->key][$list])
+	? $_SESSION['Comparison'][$modx->context->key][$list]['ids']
 	: array();
-$_SESSION['Comparison'][$list] = array(
+$_SESSION['Comparison'][$modx->context->key][$list] = array(
 	'list_id' => $list_id,
 	'minItems' => $minItems,
 	'maxItems' => $maxItems,

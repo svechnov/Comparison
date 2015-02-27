@@ -12,7 +12,7 @@ $pdoFetch = new $pdoClass($modx, $scriptProperties);
 $list = !empty($_REQUEST['list'])
 	? (string) $_REQUEST['list']
 	: 'default';
-if (empty($_SESSION['Comparison'][$list]) && empty($_REQUEST['cmp_ids'])) {
+if (empty($_SESSION['Comparison'][$modx->context->key][$list]) && empty($_REQUEST['cmp_ids'])) {
 	return $modx->lexicon('comparison_err_no_list');
 }
 
@@ -93,8 +93,8 @@ foreach (array('leftJoin','select') as $v) {
 	unset($scriptProperties[$v]);
 }
 
-$ids = !empty($_SESSION['Comparison'][$list]['ids'])
-	? array_keys($_SESSION['Comparison'][$list]['ids'])
+$ids = !empty($_SESSION['Comparison'][$modx->context->key][$list]['ids'])
+	? array_keys($_SESSION['Comparison'][$modx->context->key][$list]['ids'])
 	: explode(',', preg_replace('/[^0-9\,]/', '', $_REQUEST['cmp_ids']));
 
 $properties = array(

@@ -18,7 +18,7 @@ switch ($modx->event->name) {
 					? (string) $_REQUEST['list']
 					: 'default';
 
-				if ($list != 'default' && !isset($_SESSION['Comparison'][$list])) {
+				if ($list != 'default' && !isset($_SESSION['Comparison'][$modx->context->key][$list])) {
 					$response['success'] = false;
 					$response['message'] = $modx->lexicon('comparison_err_add_name');
 				}
@@ -27,7 +27,7 @@ switch ($modx->event->name) {
 					$response['message'] = $modx->lexicon('comparison_err_add_resource');
 				}
 				else {
-					$params = & $_SESSION['Comparison'][$list];
+					$params = & $_SESSION['Comparison'][$modx->context->key][$list];
 					$id = $_REQUEST['resource'];
 					if ($action == 'add') {
 						if ((count($params['ids']) + 1) > $params['maxItems']) {

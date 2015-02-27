@@ -1,5 +1,9 @@
 Changelog for Comparison.
 
+1.1.0 pl
+==============
+- Added contexts support.
+
 1.0.0 pl1
 ==============
 - Added snippet GetComparison.
